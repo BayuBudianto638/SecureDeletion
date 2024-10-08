@@ -8,9 +8,11 @@ namespace SecureFileDeletion
     {
         static void Main(string[] args)
         {
+            string insecureFilePath = "C:\\Users\\user\\Pictures\\KTP.png";
+
             for (int i = 0; i < 10; i++)
             {
-                using (FileStream stream = File.OpenWrite("C:\\Users\\user\\Pictures\\KTP.png"))
+                using (FileStream stream = File.OpenWrite(insecureFilePath))
                 {
                     byte[] randomData = new byte[stream.Length];
                     Random random = new Random();
@@ -28,9 +30,6 @@ namespace SecureFileDeletion
             {
                 Console.WriteLine("File not found.");
             }
-
-            // Clear the secure string
-            filePath.Clear();
         }
     }
 }

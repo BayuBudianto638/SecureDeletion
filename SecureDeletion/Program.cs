@@ -8,17 +8,9 @@ namespace SecureFileDeletion
     {
         static void Main(string[] args)
         {
-            SecureString filePath = new SecureString();
-            foreach (char c in "C:\\Users\\user\\Pictures\\KTP.png")
-            {
-                filePath.AppendChar(c);
-            }
-
-            string insecureFilePath = filePath.ToString();
-
             for (int i = 0; i < 10; i++)
             {
-                using (FileStream stream = File.OpenWrite(insecureFilePath))
+                using (FileStream stream = File.OpenWrite("C:\\Users\\user\\Pictures\\KTP.png"))
                 {
                     byte[] randomData = new byte[stream.Length];
                     Random random = new Random();
